@@ -1,10 +1,14 @@
-// import files and packages up here
+const express = require('express');
+const data = require('./data.json');
+const app = express();
 
+app.use(express.json());
 
-// create your express server below
-var app;
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to the API!');
+});
+app.get('/data', (req, res) => {
+  res.status(200).json(data);
+});
 
-// add your routes and middleware below
-
-// finally export the express application
 module.exports = app;
